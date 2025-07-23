@@ -1,8 +1,8 @@
 import streamlit as st
 import random
 
-# ✅ 스타일 설정 (아이보리 배경 + 포근한 느낌)
-st.set_page_config(page_title="K-POP 아이돌 추천기", page_icon="🎵", layout="centered")
+# ✅ 포근한 분위기의 전체 테마 스타일 적용
+st.set_page_config(page_title="K-POP 노래 추천기", page_icon="🎵", layout="centered")
 
 st.markdown("""
     <style>
@@ -10,37 +10,32 @@ st.markdown("""
 
     html, body, [class*="css"] {
         font-family: 'NanumSquareRound', sans-serif !important;
-        background-color: #fdfaf3 !important;
-        color: #4a4a4a !important;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: #3d3d3d !important;
-    }
-
-    .stButton>button {
-        background: linear-gradient(145deg, #fdfaf3, #f3f0e8);
-        border: 1px solid #e6e3d9;
+        background-color: #fefaf3 !important;
         color: #4a4a4a;
+    }
+
+    .stButton > button {
+        background: linear-gradient(145deg, #f8f4e8, #f3eee3);
+        border: 1px solid #e5e0d6;
+        color: #5a4e3c;
         font-weight: bold;
-        box-shadow: 2px 2px 6px #ddd9cf, -2px -2px 6px #ffffff;
-        border-radius: 12px;
-        padding: 0.6em 1.2em;
+        box-shadow: 2px 2px 6px #e0dcd3, -2px -2px 6px #ffffff;
+        border-radius: 14px;
+        padding: 0.6em 1.4em;
         transition: 0.2s ease-in-out;
     }
 
-    .stButton>button:hover {
-        background: linear-gradient(145deg, #f3f0e8, #fdfaf3);
+    .stButton > button:hover {
+        background: linear-gradient(145deg, #f3eee3, #f8f4e8);
         transform: scale(1.02);
-        box-shadow: 2px 2px 10px #d5d2ca, -2px -2px 10px #ffffff;
+        box-shadow: 2px 2px 10px #d9d3c8, -2px -2px 10px #ffffff;
     }
 
-    .stButton>button:active {
-        box-shadow: 0 0 10px #a1887f inset !important;
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #5a4e3c;
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 # ✅ 121개 조합에 맞춘 노래 리스트
