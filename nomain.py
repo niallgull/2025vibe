@@ -172,8 +172,7 @@ songs = [
     {'mood': '추억에 잠기고 싶을 때', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '어쿠스틱', 'title': 'Feel Special', 'artist': 'TWICE'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '라틴팝', 'title': 'Spring Day', 'artist': 'BTS'},
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'}
-] 
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'}] 
 
 # ✅ 조건 기반 추천
 if st.button("🔍 추천받기"):
