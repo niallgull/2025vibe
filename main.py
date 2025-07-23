@@ -127,3 +127,9 @@ elif selected == "ℹ️ 정보":
         - 유저 댓글 모음 💬  
         - 플레이리스트 저장 ❤️  
     """)
+cd "내가 만든 폴더 경로"   # 예: cd Desktop/kpop-recommender-app
+git init
+git remote add origin https://github.com/너의아이디/kpop-recommender-app.git
+git add .
+git commit -m "🎉 First commit: K-POP 추천 앱"
+git push -u origin master
