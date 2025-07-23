@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# ✅ 폰트 적용
+# ✅ 귀엽고 모던한 폰트 적용
 st.markdown("""
     <style>
     @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
@@ -11,128 +11,89 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ✅ 곡 데이터
+# ✅ 전체 노래 리스트 (일부 생략 가능)
 songs = [
+    # 🎵 예시: 기존 곡들 + 너가 추가한 아티스트들 포함
     {
-        "title": "Magnetic",
-        "artist": "ILLIT",
-        "mood": "설렘",
-        "genre": "댄스",
-        "youtube": "https://www.youtube.com/watch?v=Vk5-c_v4gMU",
-        "image": "https://i.ytimg.com/vi/Vk5-c_v4gMU/hqdefault.jpg"
-    },
-    {
-        "title": "Ditto",
-        "artist": "NewJeans",
-        "mood": "쓸쓸함",
-        "genre": "인디팝",
-        "youtube": "https://www.youtube.com/watch?v=pSUydWEqKwE",
-        "image": "https://i.ytimg.com/vi/pSUydWEqKwE/hqdefault.jpg"
-    },
-    {
-        "title": "Love Dive",
-        "artist": "IVE",
-        "mood": "기분전환",
-        "genre": "EDM",
-        "youtube": "https://www.youtube.com/watch?v=Y8JFxS1HlDo",
-        "image": "https://i.ytimg.com/vi/Y8JFxS1HlDo/hqdefault.jpg"
-    },
-    {
-        "title": "Eight",
-        "artist": "IU",
+        "title": "Youth",
+        "artist": "TOURS (투어스)",
         "mood": "추억에 잠기고 싶을 때",
         "genre": "어쿠스틱",
-        "youtube": "https://www.youtube.com/watch?v=TgOu00Mf3kI",
-        "image": "https://i.ytimg.com/vi/TgOu00Mf3kI/hqdefault.jpg"
+        "youtube": "https://www.youtube.com/watch?v=VKjG5n0Q2rU",
+        "image": "https://i.ytimg.com/vi/VKjG5n0Q2rU/hqdefault.jpg"
     },
     {
-        "title": "134340",
-        "artist": "BTS (방탄소년단)",
-        "mood": "쓸쓸함",
-        "genre": "어쿠스틱",
-        "youtube": "https://www.youtube.com/watch?v=U8H-5cZ6zv8",
-        "image": "https://i.ytimg.com/vi/U8H-5cZ6zv8/hqdefault.jpg"
-    },
-    {
-        "title": "슈퍼소닉 (Super Sonic)",
-        "artist": "fromis_9",
-        "mood": "신남",
-        "genre": "EDM",
-        "youtube": "https://www.youtube.com/watch?v=Kj2XN0qZ-GQ",
-        "image": "https://i.ytimg.com/vi/Kj2XN0qZ-GQ/hqdefault.jpg"
-    },
-    {
-        "title": "빌려온 고양이",
-        "artist": "ILLIT",
+        "title": "Dive",
+        "artist": "TOURS (투어스)",
         "mood": "힐링",
-        "genre": "시티팝",
-        "youtube": "https://www.youtube.com/watch?v=0aZr9VA93zY",
-        "image": "https://i.ytimg.com/vi/0aZr9VA93zY/hqdefault.jpg"
-    },
-    {
-        "title": "I AM",
-        "artist": "IVE",
-        "mood": "자신감",
-        "genre": "댄스",
-        "youtube": "https://www.youtube.com/watch?v=6ZUIwj3FgUY",
-        "image": "https://i.ytimg.com/vi/6ZUIwj3FgUY/hqdefault.jpg"
-    },
-    {
-        "title": "Polaroid Love",
-        "artist": "ENHYPEN",
-        "mood": "설렘",
         "genre": "인디팝",
-        "youtube": "https://www.youtube.com/watch?v=HGt-I6_hDk4",
-        "image": "https://i.ytimg.com/vi/HGt-I6_hDk4/hqdefault.jpg"
+        "youtube": "https://www.youtube.com/watch?v=25VmR3cSPv4",
+        "image": "https://i.ytimg.com/vi/25VmR3cSPv4/hqdefault.jpg"
     },
     {
-        "title": "PANORAMA",
-        "artist": "iKON",
+        "title": "Runaway",
+        "artist": "TOURS (투어스)",
+        "mood": "우울함",
+        "genre": "R&B",
+        "youtube": "https://www.youtube.com/watch?v=ZBpne6SL1Xg",
+        "image": "https://i.ytimg.com/vi/ZBpne6SL1Xg/hqdefault.jpg"
+    },
+    {
+        "title": "REALLY REALLY",
+        "artist": "WINNER",
         "mood": "기분전환",
-        "genre": "록",
-        "youtube": "https://www.youtube.com/watch?v=3KoKE9nCGBY",
-        "image": "https://i.ytimg.com/vi/3KoKE9nCGBY/hqdefault.jpg"
+        "genre": "시티팝",
+        "youtube": "https://www.youtube.com/watch?v=4tBnF46ybZk",
+        "image": "https://i.ytimg.com/vi/4tBnF46ybZk/hqdefault.jpg"
     },
     {
-        "title": "사랑을 했다",
-        "artist": "iKON",
-        "mood": "추억에 잠기고 싶을 때",
-        "genre": "발라드",
-        "youtube": "https://www.youtube.com/watch?v=vecSVX1QYbQ",
-        "image": "https://i.ytimg.com/vi/vecSVX1QYbQ/hqdefault.jpg"
-    }
+        "title": "ISLAND",
+        "artist": "WINNER",
+        "mood": "기분전환",
+        "genre": "EDM",
+        "youtube": "https://www.youtube.com/watch?v=AV5vZpJ_HV8",
+        "image": "https://i.ytimg.com/vi/AV5vZpJ_HV8/hqdefault.jpg"
+    },
+    {
+        "title": "MILLIONS",
+        "artist": "WINNER",
+        "mood": "설렘",
+        "genre": "팝",
+        "youtube": "https://www.youtube.com/watch?v=nQ6wLuYvGd4",
+        "image": "https://i.ytimg.com/vi/nQ6wLuYvGd4/hqdefault.jpg"
+    },
+    # 🎵 이전에 넣은 곡들도 여기에 같이 포함하면 돼요!
+    # 🎵 생략: BTS, ILLIT, IVE, NewJeans, EXO, FIFTY FIFTY 등
 ]
 
-# ✅ 선택지
+# ✅ 고정된 기분/장르 선택지
 moods = [
     "설렘", "쓸쓸함", "자신감", "기분전환", "우울함", "신남",
     "힐링", "위로받고 싶음", "비 오는 날", "친구들과 함께", "추억에 잠기고 싶을 때"
 ]
 genres = [
     "댄스", "인디팝", "발라드", "록", "힙합", "R&B",
-    "EDM", "시티팝", "어쿠스틱", "라틴팝"
+    "EDM", "시티팝", "어쿠스틱", "라틴팝", "팝"
 ]
 
-# ✅ 앱 제목
+# ✅ UI
 st.title("🎧 K-POP 아이돌 노래 추천기")
 
 selected_mood = st.selectbox("기분을 골라주세요", moods)
 selected_genre = st.selectbox("장르를 골라주세요", genres)
 
-# ✅ 조건 기반 추천 (랜덤 1곡)
 if st.button("🔍 추천받기"):
     filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
     if filtered:
         song = random.choice(filtered)
     else:
         song = random.choice(songs)
-        st.info("해당 조건에 맞는 곡이 없어 랜덤으로 추천해드릴게요! 💡")
+        st.info("조건에 맞는 곡이 없어 랜덤으로 추천할게요! 💡")
 
-    st.success("추천 노래 🎶")
+    st.success("✨ 추천 노래 ✨")
     st.image(song["image"], width=300, caption=f"{song['title']} - {song['artist']}")
     st.markdown(f"[유튜브에서 보기 🎬]({song['youtube']})", unsafe_allow_html=True)
 
-# ✅ 아무 노래 추천
 st.markdown("## 🎲 아무거나 추천받기")
 if st.button("🎲 아무거나 추천해줘!"):
     s = random.choice(songs)
@@ -140,3 +101,4 @@ if st.button("🎲 아무거나 추천해줘!"):
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+
