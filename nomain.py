@@ -228,62 +228,38 @@ if st.button("🎲 아무거나 추천해줘!"):
 if "history" not in st.session_state:
     st.session_state.history = []
 
-# ✅ 아무거나 추천하기 버튼 기능 (중복 없이 추천)
+# ✅ 아무거나 추천하기
+st.markdown("## 🎲 아무거나 추천받기")
+
 if st.button("🎲 아무거나 추천해줘!"):
+    # 중복 방지를 위한 추천 목록 필터링
     remaining = [s for s in songs if s not in st.session_state.history]
     if not remaining:
         st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
         st.session_state.history = []
         remaining = songs[:]
+
     s = random.choice(remaining)
     st.session_state.history.append(s)
-    st.toast("✨ 새로운 노래 추천 중!", icon="🎵")
+
+    # 추천 결과 표시
+    st.toast("✨ 새로운 노래를 추천할게요!", icon="🎧")
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
-    st.markdown(f"[유튜브에서 보기 🎮]({s['youtube']})", unsafe_allow_html=True)
+    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
 
-# ✅ 추천 기록 및 초기화 버튼 (제목 옆에 위치)
-st.markdown("---")
-col1, col2 = st.columns([3, 1])
+# ✅ 추천 기록과 초기화 버튼
+col1, col2 = st.columns([1, 5])
 with col1:
-    st.markdown("### 📜 지금\uuae4c지 추천받은 노래")
-with col2:
-    if st.button("🔄 기록 초기화"):
+    if st.button("🧹 기록 초기화"):
         st.session_state.history = []
-        st.success("기록이 초기화되었어요!")
+        st.success("추천 기록이 초기화되었어요!")
 
-# ✅ 기록 보여주기
-if st.session_state.history:
-    for idx, h in enumerate(st.session_state.history[::-1], 1):
-        st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
-else:
-    st.markdown("아직 추천받은 노래가 없어요!")
-
-    # 새로운 곡 추천
-    s = random.choice(remaining)
-    st.session_state.history.append(s)
-
-    # 에니메이션 효과 (기존 balloon 대신 다른 toast)
-    st.toast("\u2728 새로운 노래를 추천할게요!", icon="🎧")
-
-    # 추천 결과 출력
-    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
-    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
-    st.markdown(f"[\uc720\ud29c\ube0c\uc5d0\uc11c \ubcf4\uae30 🎬]({s['youtube']})", unsafe_allow_html=True)
-
-
-# ✅ 추천 기록 표시 및 초기화 버튼
-st.markdown("---")
-
-col1, col2 = st.columns([5, 1])
-with col1:
+with col2:
     st.markdown("### 📜 지금까지 추천받은 노래")
-with col2:
-    if st.button("초기화", use_container_width=True):
-        st.session_state.history = []
+    if st.session_state.history:
+        for idx, h in enumerate(st.session_state.history[::-1], 1):
+            st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
+    else:
+        st.markdown("아직 추천받은 노래가 없어요!")
 
-if st.session_state.history:
-    for idx, h in enumerate(st.session_state.history[::-1], 1):
-        st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
-else:
-    st.markdown("아직 추천받은 노래가 없어요!")
