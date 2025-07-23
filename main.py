@@ -41,7 +41,7 @@ songs = [
 ]
 
 # -------------------------------
-# 🎨 앱 기본 설정 & 스타일
+# 🎨 페이지 스타일 설정
 # -------------------------------
 st.set_page_config(page_title="K-POP 추천기", page_icon="🎧", layout="centered")
 
@@ -68,7 +68,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------------------
-# 📂 메뉴 탭 (추천받기 / 랜덤추천 / 정보)
+# 📂 메뉴 탭 구성
 # -------------------------------
 selected = option_menu(
     menu_title=None,
@@ -93,7 +93,7 @@ if selected == "🎧 추천받기":
     if st.button("🎵 노래 추천받기"):
         results = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
         if results:
-            st.success(f"'{selected_mood}' 기분에 어울리는 '{selected_genre}' 노래!")
+            st.success(f"'{selected_mood}' 기분에 어울리는 '{selected_genre}' 장르의 노래!")
             for song in results:
                 st.image(song["image_url"], width=300, caption=f"{song['title']} - {song['artist']}")
                 st.markdown(f"[🔗 유튜브에서 보기]({song['youtube_url']})", unsafe_allow_html=True)
@@ -105,7 +105,7 @@ if selected == "🎧 추천받기":
 # 🎲 랜덤추천 페이지
 # -------------------------------
 elif selected == "🎲 랜덤추천":
-    st.title("🎲 랜덤 K-POP 노래 추천")
+    st.title("🎲 랜덤 K-POP 추천")
     if st.button("✨ 아무거나 추천해줘!"):
         song = random.choice(songs)
         st.balloons()
@@ -119,17 +119,11 @@ elif selected == "🎲 랜덤추천":
 elif selected == "ℹ️ 정보":
     st.title("ℹ️ 앱 정보")
     st.markdown("""
-    - 만든 사람: 당신 😎  
-    - 기능: 기분/장르 선택 기반 K-POP 추천 + 랜덤 추천  
+    - 만든 사람: 너 💖  
+    - 기능: 기분/장르 기반 K-POP 추천 + 랜덤 추천 + 유튜브 연결  
     - 기술: Python, Streamlit, streamlit-option-menu  
-    - 앞으로 만들 수 있는 기능:
-        - 입덕 테스트 🧪  
-        - 유저 댓글 모음 💬  
-        - 플레이리스트 저장 ❤️  
+    - 앞으로 추가할 수 있는 기능:
+        - 입덕 테스트
+        - 직접 노래 추가하기
+        - 팬덤별 추천 등!
     """)
-cd "내가 만든 폴더 경로"   # 예: cd Desktop/kpop-recommender-app
-git init
-git remote add origin https://github.com/너의아이디/kpop-recommender-app.git
-git add .
-git commit -m "🎉 First commit: K-POP 추천 앱"
-git push -u origin master
