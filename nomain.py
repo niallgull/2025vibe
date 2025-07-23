@@ -190,13 +190,13 @@ if st.button("🔍 추천받기"):
         st.warning("해당 조건에 맞는 곡이 없어요. 😢")
 
 st.markdown("## 🎲 아무것이나 추천받기")
-if st.button("🎲 아무것이나 추천해줘!"):
+if st.button("🎲 아무거나 추천해줘!"):
     s = random.choice(songs)
-    st.balloons()
+    # 기존의 st.balloons() 대신 애니메이션 대체
+    st.toast("✨ 새로운 노래를 추천 중이에요!", icon="🎧")
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
-    st.session_state.history.append(s)
 
 # 추천 기록 표시
 st.markdown("---")
