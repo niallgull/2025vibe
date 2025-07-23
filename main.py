@@ -47,4 +47,13 @@ if st.button("노래 추천받기"):
             st.write(f"- 🎵 {s['title']} - {s['artist']}")
     else:
         st.warning("해당 조건에 맞는 노래가 없어요 😢")
+st.markdown("""
+    <style>
+    @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
+
+    html, body, [class*="css"] {
+        font-family: 'NanumSquareRound', sans-serif !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
