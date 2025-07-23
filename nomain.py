@@ -174,7 +174,26 @@ genres = [
 ]
 
 st.title("🎵 K-POP 아이돌 노래 추천기")
+# 제목 스타일 추가
+st.markdown("""
+    <style>
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+    .title-text {
+        color: #5C4033;  /* 진한 갈색 */
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+        animation: float 3s ease-in-out infinite;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
+# 제목 출력
+st.markdown('<div class="title-text">🎧 K-POP 아이돌 노래 추천기</div>', unsafe_allow_html=True)
 # 추천 기록 저장용 세션 상태 초기화
 if "history" not in st.session_state:
     st.session_state.history = []
