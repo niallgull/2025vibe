@@ -1,59 +1,79 @@
+# songs_list.py 파일에 다음과 같은 내용이 있어야 합니다:
+# songs = [ {"mood": ..., "genre": ..., ...}, ... ]
+# 파일 이름은 반드시 songs_list.py 여야 하며, main 파일과 같은 디렉토리에 있어야 합니다.
+
+from songs_list import songs  # 이 줄은 songs_list.py와 같은 폴더에 있어야만 정상 작동합니다.
+
 import streamlit as st
 import random
-from songs_list import songs  # songs_list.py 파일에서 songs 리스트 불러오기
 
-# 앱 기본 설정
-st.set_page_config(page_title="K-POP 추천기", layout="wide")
-st.markdown("<h1 style='text-align:center; color:#5D3A00;'>K-POP 노래 추천기 🎵</h1>", unsafe_allow_html=True)
+st.set_page_config(
+    page_title="K-POP 노래 추천기",
+    page_icon="🎵",
+    layout="centered"
+)
 
-# 세션 상태 초기화
+st.markdown("""
+    <h1 style='color:#4B3621; text-align:center; animation: pulse 2s infinite;'>
+        🎶 오늘의 기분으로 추천하는 K-POP 🎶
+    </h1>
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .stButton > button {
+            background-color: #f5f1e6;
+            color: #4B3621;
+            border: none;
+            padding: 0.6em 1.2em;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #d2cfc4;
+            transition: all 0.3s ease;
+        }
+        .stButton > button:hover {
+            box-shadow: 2px 2px 12px #a48f77;
+            background-color: #e8e3d4;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+mood = st.selectbox("지금 기분은 어떤가요?", sorted(set(song['mood'] for song in songs)))
+genre = st.selectbox("듣고 싶은 장르는?", sorted(set(song['genre'] for song in songs)))
+
+# 추천 기록 저장용 세션 상태 초기화
 if "history" not in st.session_state:
     st.session_state.history = []
-if "used_indexes" not in st.session_state:
-    st.session_state.used_indexes = set()
 
-# 분위기 & 장르 선택
-col1, col2 = st.columns(2)
-with col1:
-    selected_mood = st.selectbox("기분을 골라보세요 🎭", sorted(set(song["mood"] for song in songs)))
-with col2:
-    selected_genre = st.selectbox("듣고 싶은 장르를 골라보세요 🎶", sorted(set(song["genre"] for song in songs)))
-
-# 노래 추천 로직
-def recommend_song():
-    filtered = [i for i, song in enumerate(songs) if song["mood"] == selected_mood and song["genre"] == selected_genre]
-    candidates = [i for i in filtered if i not in st.session_state.used_indexes]
-    if not candidates:
-        st.session_state.used_indexes.clear()  # 다 나왔으면 초기화
-        candidates = filtered
-    if candidates:
-        index = random.choice(candidates)
-        st.session_state.used_indexes.add(index)
-        return songs[index]
-    return None
-
-# 추천 버튼
+# 곡 추천 버튼
 if st.button("🎲 아무거나 추천해줘!"):
-    result = recommend_song()
-    if result:
-        st.session_state.history.append(result)
-        st.image(result["image"], width=300)
-        st.markdown(f"### 🎧 {result['title']} - {result['artist']}")
-        st.markdown(f"[🔗 유튜브에서 보기]({result['youtube']})")
+    candidates = [song for song in songs if song['mood'] == mood and song['genre'] == genre]
+    if candidates:
+        # 이전에 추천된 곡 제외
+        candidates = [c for c in candidates if c not in st.session_state.history]
+        if candidates:
+            song = random.choice(candidates)
+        else:
+            st.warning("추천 가능한 새로운 곡이 없어요! 기록을 초기화해 주세요.")
+            song = None
+        if song:
+            st.session_state.history.append(song)
+            st.image(song['image'], use_column_width=True)
+            st.markdown(f"### 🎧 {song['title']} - {song['artist']}")
+            st.markdown(f"[뮤직비디오 보러가기 🎬]({song['youtube']})")
     else:
-        st.warning("조건에 맞는 노래가 없어요!")
+        st.warning("선택한 조건에 맞는 곡이 없어요!")
 
-# 추천 기록
-st.markdown("---")
-st.markdown("### 📜 지금까지 추천받은 노래")
-if st.session_state.history:
-    for h in st.session_state.history[::-1]:
-        st.markdown(f"- **{h['title']}** - {h['artist']}")
-else:
-    st.write("추천받은 노래가 아직 없어요.")
+# 기록 초기화 버튼
+col1, col2 = st.columns([1, 5])
+with col1:
+    if st.button("🗑️ 기록 초기화"):
+        st.session_state.history = []
 
-# 초기화 버튼
-if st.button("초기화 🔄"):
-    st.session_state.history.clear()
-    st.session_state.used_indexes.clear()
-    st.experimental_rerun()
+# 추천 기록 출력
+with col2:
+    if st.session_state.history:
+        st.markdown("### 📜 지금까지 추천받은 노래")
+        for idx, s in enumerate(st.session_state.history[::-1], 1):
+            st.markdown(f"{idx}. **{s['title']} - {s['artist']}**")
