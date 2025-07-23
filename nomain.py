@@ -235,3 +235,13 @@ if st.button("🎲 아무거나 추천해줘!"):
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[\uc720\ud29c\ube0c\uc5d0\uc11c \ubcf4\uae30 🎬]({s['youtube']})", unsafe_allow_html=True)
+
+# 추천 기록 표시
+st.markdown("---")
+st.markdown("### 📜 지금까지 추천받은 노래")
+if st.session_state.history:
+    for idx, h in enumerate(st.session_state.history[::-1], 1):
+        st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
+else:
+    st.markdown("아직 추천받은 노래가 없어요!")
+
