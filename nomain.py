@@ -168,6 +168,7 @@ if st.button("🎲 아무거나 추천해줘!"):
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+
 # 추천 기록 표시
 st.markdown("---")
 st.markdown("### 📜 지금까지 추천받은 노래")
