@@ -247,13 +247,16 @@ else:
 
 # ✅ 추천 기록 표시 및 초기화 버튼
 st.markdown("---")
-st.markdown("### 📜 지금까지 추천받은 노래")
+
+col1, col2 = st.columns([5, 1])
+with col1:
+    st.markdown("### 📜 지금까지 추천받은 노래")
+with col2:
+    if st.button("초기화", use_container_width=True):
+        st.session_state.history = []
 
 if st.session_state.history:
     for idx, h in enumerate(st.session_state.history[::-1], 1):
         st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
-    if st.button("🧹 기록 초기화하기"):
-        st.session_state.history.clear()
-        st.success("기록이 초기화되었어요!")
 else:
     st.markdown("아직 추천받은 노래가 없어요!")
