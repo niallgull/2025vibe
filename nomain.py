@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# ✅ 폰트 스타일 + 버튼 스타일 (아이보리 톤, 포근한 느낌)
+# ✅ 폰트 스타일 + 버튼 스타일 (아이보리 톤, 포근한 느낌, 클릭 시 갈색 하이라이트)
 st.markdown("""
     <style>
     @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
@@ -25,6 +25,10 @@ st.markdown("""
         background: linear-gradient(145deg, #f3f0e8, #fdfaf3);
         transform: scale(1.02);
         box-shadow: 2px 2px 10px #d5d2ca, -2px -2px 10px #ffffff;
+    }
+
+    button[kind="secondary"]:active {
+        box-shadow: inset 2px 2px 6px #a58c6f, inset -2px -2px 6px #fff9ee;
     }
     </style>
 """, unsafe_allow_html=True)
