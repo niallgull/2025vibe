@@ -214,6 +214,7 @@ if st.button("🔍 추천받기"):
 
 st.markdown("## 🎲 아무것이나 추천받기")
 if st.button("🎲 아무거나 추천해줘!"):
+    
     # 같은 노래 반복 방지를 위한 필터링
 previous_titles = [h["title"] for h in st.session_state.history]
 remaining_songs = [song for song in songs if song["title"] not in previous_titles]
