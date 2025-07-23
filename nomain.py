@@ -212,32 +212,26 @@ if st.button("🔍 추천받기"):
     else:
         st.warning("해당 조건에 맞는 곡이 없어요. 😢")
 
-st.markdown("## 🎲 아무것이나 추천받기")
-if st.button("🎲 아무거나 추천해줘!"):
+# 이전 추천곡 저장할 리스트 생성
+if "history" not in st.session_state:
+    st.session_state.history = []
 
-    s = random.choice(songs)
-    # 기존의 st.balloons() 대신 애니메이션 대체
-    st.toast("✨ 새로운 노래를 추천 중이에요!", icon="🎧")
+if st.button("🎲 아무거나 추천해줘!"):
+    # 이전 추천된 곡과 중복되지 않게 필터링
+    remaining = [s for s in songs if s not in st.session_state.history]
+    if not remaining:
+        st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
+        st.session_state.history = []
+        remaining = songs[:]
+
+    # 새로운 곡 추천
+    s = random.choice(remaining)
+    st.session_state.history.append(s)
+
+    # 에니메이션 효과 (기존 balloon 대신 다른 toast)
+    st.toast("\u2728 새로운 노래를 추천할게요!", icon="🎧")
+
+    # 추천 결과 출력
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
-    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
-
-# 같은 노래 반복 방지를 위한 필터링
-previous_titles = [h["title"] for h in st.session_state.history]
-remaining_songs = [song for song in songs if song["title"] not in previous_titles]
-
-if not remaining_songs:
-    st.session_state.history.clear()
-    remaining_songs = songs.copy()
-
-s = random.choice(remaining_songs)
-st.session_state.history.append(s)
-
-# 추천 기록 표시
-st.markdown("---")
-st.markdown("### 📜 지금까지 추천받은 노래")
-if st.session_state.history:
-    for idx, h in enumerate(st.session_state.history[::-1], 1):
-        st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
-else:
-    st.markdown("아직 추천받은 노래가 없어요!")
+    st.markdown(f"[\uc720\ud29c\ube0c\uc5d0\uc11c \ubcf4\uae30 🎬]({s['youtube']})", unsafe_allow_html=True)
