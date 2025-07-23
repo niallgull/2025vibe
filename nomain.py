@@ -230,28 +230,23 @@ if "history" not in st.session_state:
 
 # ✅ 아무거나 추천하기
 st.markdown("## 🎲 아무거나 추천받기")
-
-if st.button("🎲 아무거나 추천해줘!"):
-    # 중복 방지를 위한 추천 목록 필터링
+if st.button("🎲 아무거나 추천해줘!", key="random_button"):
     remaining = [s for s in songs if s not in st.session_state.history]
     if not remaining:
         st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
         st.session_state.history = []
         remaining = songs[:]
-
     s = random.choice(remaining)
     st.session_state.history.append(s)
-
-    # 추천 결과 표시
     st.toast("✨ 새로운 노래를 추천할게요!", icon="🎧")
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
 
-# ✅ 추천 기록과 초기화 버튼
+# ✅ 기록 초기화 버튼과 함께 추천 내역 보여주기
 col1, col2 = st.columns([1, 5])
 with col1:
-    if st.button("🧹 기록 초기화"):
+    if st.button("🧹 기록 초기화", key="reset_button"):
         st.session_state.history = []
         st.success("추천 기록이 초기화되었어요!")
 
@@ -262,4 +257,3 @@ with col2:
             st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
     else:
         st.markdown("아직 추천받은 노래가 없어요!")
-
