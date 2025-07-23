@@ -1,16 +1,24 @@
 import streamlit as st
 import random
 
-# ✅ 폰트 스타일 + 버튼 스타일 (아이보리 톤, 포근한 느낌, 클릭 시 갈색 하이라이트)
+# ✅ 스타일 설정 (아이보리 배경 + 포근한 느낌)
+st.set_page_config(page_title="K-POP 아이돌 추천기", page_icon="🎵", layout="centered")
+
 st.markdown("""
     <style>
     @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
 
     html, body, [class*="css"] {
         font-family: 'NanumSquareRound', sans-serif !important;
+        background-color: #fdfaf3 !important;
+        color: #4a4a4a !important;
     }
 
-    button[kind="secondary"] {
+    h1, h2, h3, h4, h5, h6 {
+        color: #3d3d3d !important;
+    }
+
+    .stButton>button {
         background: linear-gradient(145deg, #fdfaf3, #f3f0e8);
         border: 1px solid #e6e3d9;
         color: #4a4a4a;
@@ -21,17 +29,18 @@ st.markdown("""
         transition: 0.2s ease-in-out;
     }
 
-    button[kind="secondary"]:hover {
+    .stButton>button:hover {
         background: linear-gradient(145deg, #f3f0e8, #fdfaf3);
         transform: scale(1.02);
         box-shadow: 2px 2px 10px #d5d2ca, -2px -2px 10px #ffffff;
     }
 
-    button[kind="secondary"]:active {
-        box-shadow: inset 2px 2px 6px #a58c6f, inset -2px -2px 6px #fff9ee;
+    .stButton>button:active {
+        box-shadow: 0 0 10px #a1887f inset !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # ✅ 121개 조합에 맞춘 노래 리스트
