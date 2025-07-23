@@ -168,3 +168,18 @@ if st.button("🎲 아무거나 추천해줘!"):
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+# 추천 기록 표시
+st.markdown("---")
+st.markdown("### 📜 지금까지 추천받은 노래")
+if st.session_state.history:
+    for idx, h in enumerate(st.session_state.history[::-1], 1):
+        st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
+else:
+    st.markdown("아직 추천받은 노래가 없어요!")
+if st.button("🎲 아무거나 추천해줘!"):
+    s = random.choice(songs)
+        st.session_state.history.append(s)  # 랜덤 추천 기록 저장
+    st.balloons()
+    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
+    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
+    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
