@@ -214,8 +214,15 @@ if st.button("🔍 추천받기"):
 
 st.markdown("## 🎲 아무것이나 추천받기")
 if st.button("🎲 아무거나 추천해줘!"):
-    
-    # 같은 노래 반복 방지를 위한 필터링
+
+    s = random.choice(songs)
+    # 기존의 st.balloons() 대신 애니메이션 대체
+    st.toast("✨ 새로운 노래를 추천 중이에요!", icon="🎧")
+    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
+    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
+    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+
+# 같은 노래 반복 방지를 위한 필터링
 previous_titles = [h["title"] for h in st.session_state.history]
 remaining_songs = [song for song in songs if song["title"] not in previous_titles]
 
@@ -225,13 +232,6 @@ if not remaining_songs:
 
 s = random.choice(remaining_songs)
 st.session_state.history.append(s)
-
-    s = random.choice(songs)
-    # 기존의 st.balloons() 대신 애니메이션 대체
-    st.toast("✨ 새로운 노래를 추천 중이에요!", icon="🎧")
-    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
-    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
-    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
 
 # 추천 기록 표시
 st.markdown("---")
