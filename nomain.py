@@ -4,12 +4,25 @@ import random
 # ✅ 폰트 스타일 적용
 st.markdown("""
     <style>
-    @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
-    html, body, [class*="css"] {
-        font-family: 'NanumSquareRound', sans-serif !important;
+    button[kind="secondary"] {
+        background: linear-gradient(145deg, #f2f2f2, #e0e0e0);
+        border: 1px solid #ccc;
+        color: #333;
+        font-weight: bold;
+        box-shadow: 2px 2px 6px #d1d1d1, -2px -2px 6px #ffffff;
+        border-radius: 12px;
+        padding: 0.6em 1.2em;
+        transition: 0.2s ease-in-out;
+    }
+
+    button[kind="secondary"]:hover {
+        background: linear-gradient(145deg, #e0e0e0, #f2f2f2);
+        transform: scale(1.02);
+        box-shadow: 2px 2px 10px #c5c5c5, -2px -2px 10px #ffffff;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # ✅ 121개 조합에 맞춘 노래 리스트
 songs = [
