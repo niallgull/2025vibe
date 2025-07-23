@@ -1,6 +1,10 @@
 import streamlit as st
+import random
+from streamlit_option_menu import option_menu
 
-# --- 확장된 K-POP 추천 데이터 ---
+# -------------------------------
+# 🎵 데이터셋
+# -------------------------------
 songs = [
     {
         "title": "Magnetic",
@@ -36,27 +40,87 @@ songs = [
     }
 ]
 
-# --- Streamlit UI ---
-st.set_page_config(page_title="K-POP 추천기", page_icon="🎧")
+# -------------------------------
+# 🎨 페이지 스타일 설정
+# -------------------------------
+st.set_page_config(page_title="K-POP 노래 추천기", page_icon="🎧", layout="centered")
 
-st.title("🎧 K-POP 아이돌 노래 추천기")
-st.write("기분과 장르를 골라서 당신에게 어울리는 K-POP 노래를 추천해줄게요!")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #fff7f9;
+        font-family: 'Pretendard', sans-serif;
+    }
+    .recommend-box {
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# 선택 옵션 만들기
-mood_options = sorted(set(song["mood"] for song in songs))
-genre_options = sorted(set(song["genre"] for song in songs))
+# -------------------------------
+# 📂 메뉴 구성
+# -------------------------------
+selected = option_menu(
+    menu_title=None,
+    options=["🎧 추천받기", "🎲 랜덤추천", "ℹ️ 정보"],
+    icons=["music-note-beamed", "dice-5", "info-circle"],
+    orientation="horizontal"
+)
 
-selected_mood = st.selectbox("기분을 골라주세요 😊", mood_options)
-selected_genre = st.selectbox("장르를 골라주세요 🎵", genre_options)
+# -------------------------------
+# 📌 추천받기 페이지
+# -------------------------------
+if selected == "🎧 추천받기":
+    st.title("🎧 K-POP 아이돌 노래 추천기")
+    st.write("기분과 장르를 선택하면 어울리는 K-POP 노래를 추천해줄게요!")
 
-# 추천 버튼
-if st.button("노래 추천받기"):
-    results = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
-    if results:
-        st.success(f"'{selected_mood}' 기분에 어울리는 '{selected_genre}' 장르 노래를 추천해요!")
-        for song in results:
-            st.image(song["image_url"], width=300, caption=f"{song['title']} - {song['artist']}")
-            st.markdown(f"[🔗 유튜브에서 보기]({song['youtube_url']})", unsafe_allow_html=True)
-            st.markdown("---")
-    else:
-        st.warning("앗! 해당 조건에 맞는 노래가 없어요. 조건을 바꿔보세요 😢")
+    mood_options = sorted(set(song["mood"] for song in songs))
+    genre_options = sorted(set(song["genre"] for song in songs))
+
+    selected_mood = st.selectbox("기분을 골라주세요 😊", mood_options)
+    selected_genre = st.selectbox("장르를 골라주세요 🎵", genre_options)
+
+    if st.button("🎵 노래 추천받기"):
+        results = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
+        if results:
+            st.success("✨ 아래 노래를 추천해요!")
+            for song in results:
+                with st.container():
+                    st.image(song["image_url"], width=300, caption=f"{song['title']} - {song['artist']}")
+                    st.markdown(f"[🔗 유튜브에서 보기]({song['youtube_url']})", unsafe_allow_html=True)
+                    st.markdown("---")
+        else:
+            st.warning("조건에 맞는 노래가 없어요 😢")
+
+# -------------------------------
+# 🎲 랜덤 추천 페이지
+# -------------------------------
+elif selected == "🎲 랜덤추천":
+    st.title("🎲 랜덤 K-POP 추천")
+    if st.button("✨ 랜덤으로 추천해줘!"):
+        song = random.choice(songs)
+        st.balloons()
+        st.image(song["image_url"], width=300, caption=f"{song['title']} - {song['artist']}")
+        st.markdown(f"**🎶 {song['title']}** by *{song['artist']}*")
+        st.markdown(f"[🔗 유튜브에서 보기]({song['youtube_url']})", unsafe_allow_html=True)
+
+# -------------------------------
+# ℹ️ 정보 페이지
+# -------------------------------
+elif selected == "ℹ️ 정보":
+    st.title("ℹ️ 앱 정보")
+    st.markdown("""
+    - 만든 사람: 당신 😎  
+    - 사용 기술: Python + Streamlit  
+    - 기능: K-POP 노래 추천, 랜덤 추천, 유튜브 연결  
+    - 다음에 만들 기능: 입덕 테스트, 팬픽 연동, 댓글 모음 등등!
+
+    궁금한 점은 GPT에게 물어보세요 💬
+    """)
+
