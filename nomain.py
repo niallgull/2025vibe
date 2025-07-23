@@ -146,10 +146,14 @@ genres = [
     "EDM", "시티팝", "어쿠스틱", "라틴팝", "팝"
 ]
 
-st.title("🎧 K-POP 아이돌 노래 추천기")
+st.title("🎵 K-POP 아이돌 노래 추천기")
 
-selected_mood = st.selectbox("기분을 골라주세요", moods)
-selected_genre = st.selectbox("장르를 골라주세요", genres)
+# 추천 기록 저장용 세션 상태 초기화
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+selected_mood = st.selectbox("기분을 골래주세요", moods)
+selected_genre = st.selectbox("장르를 골래주세요", genres)
 
 if st.button("🔍 추천받기"):
     filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
@@ -158,16 +162,18 @@ if st.button("🔍 추천받기"):
         st.success("✨ 추천 노래 ✨")
         st.image(song["image"], width=300, caption=f"{song['title']} - {song['artist']}")
         st.markdown(f"[유튜브에서 보기 🎬]({song['youtube']})", unsafe_allow_html=True)
+        st.session_state.history.append(song)
     else:
         st.warning("해당 조건에 맞는 곡이 없어요. 😢")
 
-st.markdown("## 🎲 아무거나 추천받기")
-if st.button("🎲 아무거나 추천해줘!"):
+st.markdown("## 🎲 아무것이나 추천받기")
+if st.button("🎲 아무것이나 추천해줘!"):
     s = random.choice(songs)
     st.balloons()
     st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+    st.session_state.history.append(s)
 
 # 추천 기록 표시
 st.markdown("---")
@@ -177,7 +183,3 @@ if st.session_state.history:
         st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
 else:
     st.markdown("아직 추천받은 노래가 없어요!")
-if st.button("🎲 아무거나 추천해줘!"):
-    s = random.choice(songs)
-        st.session_state.history.append(s)  
-
