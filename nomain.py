@@ -51,49 +51,6 @@ genres = ["댄스", "인디팝", "발라드", "록", "힙합", "R&B", "EDM", "�
 selected_mood = st.selectbox("기분을 골라주세요", moods)
 selected_genre = st.selectbox("장르를 골라주세요", genres)
 
-# ✅ 조건 기반 추천
-if st.button("🔍 추천받기"):
-    filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
-    if filtered:
-        song = random.choice(filtered)
-        st.session_state.history.append(song)
-        st.success("✨ 추천 노래 ✨")
-        st.image(song["image"], width=300, caption=f"{song['title']} - {song['artist']}")
-        st.markdown(f"[유튜브에서 보기 🎬]({song['youtube']})", unsafe_allow_html=True)
-    else:
-        st.warning("해당 조건에 맞는 곡이 없어요. 😢")
-
-# ✅ 아무거나 추천하기
-st.markdown("## 🎲 아무거나 추천받기")
-if st.button("🎲 아무거나 추천해줘!"):
-    remaining = [s for s in songs if s not in st.session_state.history]
-    if not remaining:
-        st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
-        st.session_state.history = []
-        remaining = songs[:]
-    s = random.choice(remaining)
-    st.session_state.history.append(s)
-    st.toast("✨ 새로운 노래를 추천할게요!", icon="🎧")
-    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
-    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
-    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
-
-# ✅ 기록 초기화 버튼과 함께 추천 내역 보여주기
-col1, col2 = st.columns([1, 5])
-with col1:
-    if st.button("🧹 기록 초기화"):
-        st.session_state.history = []
-        st.success("추천 기록이 초기화되었어요!")
-
-with col2:
-    st.markdown("### 📜 지금까지 추천받은 노래")
-    if st.session_state.history:
-        for idx, h in enumerate(st.session_state.history[::-1], 1):
-            st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
-    else:
-        st.markdown("아직 추천받은 노래가 없어요!")
-
-
 songs = [
     {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
     {'mood': '설렘', 'genre': '인디팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 'youtube': 'https://youtu.be/vecSVX1QYbQ', 'image': 'https://i.ytimg.com/vi/vecSVX1QYbQ/hqdefault.jpg'},
@@ -218,4 +175,45 @@ songs = [
     {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
 ] 
 
+# ✅ 조건 기반 추천
+if st.button("🔍 추천받기"):
+    filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
+    if filtered:
+        song = random.choice(filtered)
+        st.session_state.history.append(song)
+        st.success("✨ 추천 노래 ✨")
+        st.image(song["image"], width=300, caption=f"{song['title']} - {song['artist']}")
+        st.markdown(f"[유튜브에서 보기 🎬]({song['youtube']})", unsafe_allow_html=True)
+    else:
+        st.warning("해당 조건에 맞는 곡이 없어요. 😢")
+
+# ✅ 아무거나 추천하기
+st.markdown("## 🎲 아무거나 추천받기")
+if st.button("🎲 아무거나 추천해줘!"):
+    remaining = [s for s in songs if s not in st.session_state.history]
+    if not remaining:
+        st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
+        st.session_state.history = []
+        remaining = songs[:]
+    s = random.choice(remaining)
+    st.session_state.history.append(s)
+    st.toast("✨ 새로운 노래를 추천할게요!", icon="🎧")
+    st.image(s["image"], width=300, caption=f"{s['title']} - {s['artist']}")
+    st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
+    st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+
+# ✅ 기록 초기화 버튼과 함께 추천 내역 보여주기
+col1, col2 = st.columns([1, 5])
+with col1:
+    if st.button("🧹 기록 초기화"):
+        st.session_state.history = []
+        st.success("추천 기록이 초기화되었어요!")
+
+with col2:
+    st.markdown("### 📜 지금까지 추천받은 노래")
+    if st.session_state.history:
+        for idx, h in enumerate(st.session_state.history[::-1], 1):
+            st.markdown(f"{idx}. **{h['title']}** by *{h['artist']}*")
+    else:
+        st.markdown("아직 추천받은 노래가 없어요!")
 
