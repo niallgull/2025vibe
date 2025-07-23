@@ -52,126 +52,126 @@ selected_mood = st.selectbox("기분을 골라주세요", moods)
 selected_genre = st.selectbox("장르를 골라주세요", genres)
 
 songs = [
-    {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '설렘', 'genre': '인디팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 
-    {'mood': '설렘', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '설렘', 'genre': '록', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '설렘', 'genre': '힙합', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '설렘', 'genre': 'R&B', 'title': 'Spring Day', 'artist': 'BTS',
+    {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '설렘', 'genre': '인디팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '설렘', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '설렘', 'genre': '록', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
+    {'mood': '설렘', 'genre': '힙합', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '설렘', 'genre': 'R&B', 'title': 'Spring Day', 'artist': 'BTS'
     {'mood': '설렘', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '설렘', 'genre': '시티팝', 'title': 'Feel Special', 'artist': 'TWICE',
-    {'mood': '설렘', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '설렘', 'genre': '라틴팝', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '설렘', 'genre': '팝', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '쓸쓸함', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '쓸쓸함', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '쓸쓸함', 'genre': '발라드', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '쓸쓸함', 'genre': '록', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '쓸쓸함', 'genre': '힙합', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '쓸쓸함', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans', 
-    {'mood': '쓸쓸함', 'genre': 'EDM', 'title': 'Blue Hour', 'artist': 'TXT',
-    {'mood': '쓸쓸함', 'genre': '시티팝', 'title': 'Love Shot', 'artist': 'EXO',
-    {'mood': '쓸쓸함', 'genre': '어쿠스틱', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '쓸쓸함', 'genre': '라틴팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '쓸쓸함', 'genre': '팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '자신감', 'genre': '댄스', 'title': 'Spring Day', 'artist': 'BTS', 
-    {'mood': '자신감', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '자신감', 'genre': '발라드', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '자신감', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '자신감', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT',
-    {'mood': '자신감', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet', ,
-    {'mood': '자신감', 'genre': 'EDM', 'title': 'Spring Day', 'artist': 'BTS', 
-    {'mood': '자신감', 'genre': '시티팝', 'title': 'Spring Day', 'artist': 'BTS', 
-    {'mood': '자신감', 'genre': '어쿠스틱', 'title': 'Cupid', 'artist': 'FIFTY FIFTY',
-    {'mood': '자신감', 'genre': '라틴팝', 'title': 'Hype Boy', 'artist': 'NewJeans', 
-    {'mood': '자신감', 'genre': '팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON',
-    {'mood': '기분전환', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE',
-    {'mood': '기분전환', 'genre': '인디팝', 'title': 'Feel Special', 'artist': 'TWICE',
-    {'mood': '기분전환', 'genre': '발라드', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '기분전환', 'genre': '록', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '기분전환', 'genre': '힙합', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '기분전환', 'genre': 'R&B', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '기분전환', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '기분전환', 'genre': '시티팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON',
-    {'mood': '기분전환', 'genre': '어쿠스틱', 'title': 'Spring Day', 'artist': 'BTS',
-    {'mood': '기분전환', 'genre': '라틴팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '기분전환', 'genre': '팝', 'title': 'Hype Boy', 'artist': 'NewJeans', 
-    {'mood': '우울함', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '우울함', 'genre': '인디팝', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '우울함', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '우울함', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '우울함', 'genre': '힙합', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '우울함', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '우울함', 'genre': 'EDM', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '우울함', 'genre': '시티팝', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '우울함', 'genre': '어쿠스틱', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '우울함', 'genre': '라틴팝', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '우울함', 'genre': '팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '신남', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY',
-    {'mood': '신남', 'genre': '인디팝', 'title': 'Blue Hour', 'artist': 'TXT',
-    {'mood': '신남', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '신남', 'genre': '록', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '신남', 'genre': '힙합', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '신남', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans', 
-    {'mood': '신남', 'genre': 'EDM', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 
-    {'mood': '신남', 'genre': '시티팝', 'title': 'Hype Boy', 'artist': 'NewJeans', 
-    {'mood': '신남', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '신남', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '신남', 'genre': '팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 
-    {'mood': '힐링', 'genre': '댄스', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 
-    {'mood': '힐링', 'genre': '인디팝', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '힐링', 'genre': '발라드', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '힐링', 'genre': '록', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '힐링', 'genre': '힙합', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '힐링', 'genre': 'R&B', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '힐링', 'genre': 'EDM', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '힐링', 'genre': '시티팝', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '힐링', 'genre': '어쿠스틱', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '힐링', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '힐링', 'genre': '팝', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '위로받고 싶음', 'genre': '댄스', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '위로받고 싶음', 'genre': '인디팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '위로받고 싶음', 'genre': '발라드', 'title': 'LOVE SCENARIO', 'artist': 'iKON',
-    {'mood': '위로받고 싶음', 'genre': '록', 'title': 'LOVE SCENARIO', 'artist': 'iKON', 
-    {'mood': '위로받고 싶음', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '위로받고 싶음', 'genre': 'R&B', 'title': 'LOVE SCENARIO', 'artist': 'iKON',
-    {'mood': '위로받고 싶음', 'genre': 'EDM', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '위로받고 싶음', 'genre': '시티팝', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '위로받고 싶음', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '위로받고 싶음', 'genre': '라틴팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '위로받고 싶음', 'genre': '팝', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '비 오는 날', 'genre': '댄스', 'title': 'Love Dive', 'artist': 'IVE',
-    {'mood': '비 오는 날', 'genre': '인디팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN', 
-    {'mood': '비 오는 날', 'genre': '발라드', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '비 오는 날', 'genre': '록', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '비 오는 날', 'genre': '힙합', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '비 오는 날', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans',
-    {'mood': '비 오는 날', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '비 오는 날', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet',
-    {'mood': '비 오는 날', 'genre': '어쿠스틱', 'title': 'Spring Day', 'artist': 'BTS', 
-    {'mood': '비 오는 날', 'genre': '라틴팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '비 오는 날', 'genre': '팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '친구들과 함께', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '친구들과 함께', 'genre': '인디팝', 'title': 'Feel Special', 'artist': 'TWICE',
-    {'mood': '친구들과 함께', 'genre': '발라드', 'title': 'Polaroid Love', 'artist': 'ENHYPEN',
-    {'mood': '친구들과 함께', 'genre': '록', 'title': 'Love Dive', 'artist': 'IVE', 
-    {'mood': '친구들과 함께', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '친구들과 함께', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet',
-    {'mood': '친구들과 함께', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '친구들과 함께', 'genre': '시티팝', 'title': 'Hype Boy', 'artist': 'NewJeans',
-    {'mood': '친구들과 함께', 'genre': '어쿠스틱', 'title': 'Magnetic', 'artist': 'ILLIT',
-    {'mood': '친구들과 함께', 'genre': '라틴팝', 'title': 'Magnetic', 'artist': 'ILLIT', 
-    {'mood': '친구들과 함께', 'genre': '팝', 'title': 'Magnetic', 'artist': 'ILLIT',
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '댄스', 'title': 'Blue Hour', 'artist': 'TXT', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE',
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT',
-    {'mood': '추억에 잠기고 싶을 때', 'genre': 'R&B', 'title': 'Cupid', 'artist': 'FIFTY FIFTY',
-    {'mood': '추억에 잠기고 싶을 때', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '어쿠스틱', 'title': 'Feel Special', 'artist': 'TWICE', 
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '라틴팝', 'title': 'Spring Day', 'artist': 'BTS', ,
+    {'mood': '설렘', 'genre': '시티팝', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '설렘', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '설렘', 'genre': '라틴팝', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '설렘', 'genre': '팝', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '쓸쓸함', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '쓸쓸함', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '쓸쓸함', 'genre': '발라드', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '쓸쓸함', 'genre': '록', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '쓸쓸함', 'genre': '힙합', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '쓸쓸함', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '쓸쓸함', 'genre': 'EDM', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '쓸쓸함', 'genre': '시티팝', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '쓸쓸함', 'genre': '어쿠스틱', 'title': 'Blue Hour', 'artist': 'TXT' 
+    {'mood': '쓸쓸함', 'genre': '라틴팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN' 
+    {'mood': '쓸쓸함', 'genre': '팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
+    {'mood': '자신감', 'genre': '댄스', 'title': 'Spring Day', 'artist': 'BTS' 
+    {'mood': '자신감', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet' 
+    {'mood': '자신감', 'genre': '발라드', 'title': 'Feel Special', 'artist': 'TWICE' 
+    {'mood': '자신감', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '자신감', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '자신감', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '자신감', 'genre': 'EDM', 'title': 'Spring Day', 'artist': 'BTS'
+    {'mood': '자신감', 'genre': '시티팝', 'title': 'Spring Day', 'artist': 'BTS'
+    {'mood': '자신감', 'genre': '어쿠스틱', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '자신감', 'genre': '라틴팝', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '자신감', 'genre': '팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '기분전환', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '기분전환', 'genre': '인디팝', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '기분전환', 'genre': '발라드', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '기분전환', 'genre': '록', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '기분전환', 'genre': '힙합', 'title': 'Polaroid Love', 'artist': 'ENHYPEN' 
+    {'mood': '기분전환', 'genre': 'R&B', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '기분전환', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '기분전환', 'genre': '시티팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '기분전환', 'genre': '어쿠스틱', 'title': 'Spring Day', 'artist': 'BTS'
+    {'mood': '기분전환', 'genre': '라틴팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '기분전환', 'genre': '팝', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '우울함', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '우울함', 'genre': '인디팝', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '우울함', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '우울함', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '우울함', 'genre': '힙합', 'title': 'Red Flavor', 'artist': 'Red Velvet' 
+    {'mood': '우울함', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '우울함', 'genre': 'EDM', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '우울함', 'genre': '시티팝', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '우울함', 'genre': '어쿠스틱', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '우울함', 'genre': '라틴팝', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '우울함', 'genre': '팝', 'title': 'Red Flavor', 'artist': 'Red Velvet' 
+    {'mood': '신남', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '신남', 'genre': '인디팝', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '신남', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '신남', 'genre': '록', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '신남', 'genre': '힙합', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '신남', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '신남', 'genre': 'EDM', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '신남', 'genre': '시티팝', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '신남', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '신남', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE' 
+    {'mood': '신남', 'genre': '팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '힐링', 'genre': '댄스', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '힐링', 'genre': '인디팝', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '힐링', 'genre': '발라드', 'title': 'Cupid', 'artist': 'FIFTY FIFTY' 
+    {'mood': '힐링', 'genre': '록', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '힐링', 'genre': '힙합', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '힐링', 'genre': 'R&B', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '힐링', 'genre': 'EDM', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '힐링', 'genre': '시티팝', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '힐링', 'genre': '어쿠스틱', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '힐링', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '힐링', 'genre': '팝', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '위로받고 싶음', 'genre': '댄스', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '위로받고 싶음', 'genre': '인디팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '위로받고 싶음', 'genre': '발라드', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '위로받고 싶음', 'genre': '록', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '위로받고 싶음', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '위로받고 싶음', 'genre': 'R&B', 'title': 'LOVE SCENARIO', 'artist': 'iKON'
+    {'mood': '위로받고 싶음', 'genre': 'EDM', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '위로받고 싶음', 'genre': '시티팝', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '위로받고 싶음', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '위로받고 싶음', 'genre': '라틴팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
+    {'mood': '위로받고 싶음', 'genre': '팝', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '비 오는 날', 'genre': '댄스', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '비 오는 날', 'genre': '인디팝', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
+    {'mood': '비 오는 날', 'genre': '발라드', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '비 오는 날', 'genre': '록', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '비 오는 날', 'genre': '힙합', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '비 오는 날', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '비 오는 날', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '비 오는 날', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '비 오는 날', 'genre': '어쿠스틱', 'title': 'Spring Day', 'artist': 'BTS'
+    {'mood': '비 오는 날', 'genre': '라틴팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '비 오는 날', 'genre': '팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '친구들과 함께', 'genre': '댄스', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '친구들과 함께', 'genre': '인디팝', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '친구들과 함께', 'genre': '발라드', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
+    {'mood': '친구들과 함께', 'genre': '록', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '친구들과 함께', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '친구들과 함께', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '친구들과 함께', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '친구들과 함께', 'genre': '시티팝', 'title': 'Hype Boy', 'artist': 'NewJeans'
+    {'mood': '친구들과 함께', 'genre': '어쿠스틱', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '친구들과 함께', 'genre': '라틴팝', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '친구들과 함께', 'genre': '팝', 'title': 'Magnetic', 'artist': 'ILLIT'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '댄스', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '인디팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '힙합', 'title': 'Blue Hour', 'artist': 'TXT'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': 'R&B', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': 'EDM', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '어쿠스틱', 'title': 'Feel Special', 'artist': 'TWICE'
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '라틴팝', 'title': 'Spring Day', 'artist': 'BTS'
     {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', '},
 ] 
 
