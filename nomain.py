@@ -224,3 +224,27 @@ with st.expander("📚 모든 추천 곡 목록 보기 (전체 121곡)"):
         st.image(s["image"], width=200)
         st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
         st.markdown("---")
+
+# 모든 가능한 조합
+all_moods = ["설렘", "쓸쓸함", "자신감", "기분전환", "우울함", "신남", "힐링", "위로받고 싶음", "비 오는 날", "친구들과 함께", "추억에 잠기고 싶을 때"]
+all_genres = ["댄스", "인디팝", "발라드", "록", "힙합", "R&B", "EDM", "시티팝", "어쿠스틱", "라틴팝", "팝"]
+
+# 현재 존재하는 조합
+existing_combinations = set((s['mood'], s['genre']) for s in songs)
+
+# 빠진 조합 찾기
+missing_combinations = []
+for mood in all_moods:
+    for genre in all_genres:
+        if (mood, genre) not in existing_combinations:
+            missing_combinations.append((mood, genre))
+
+# 출력
+st.markdown("### ❗ 빠진 기분 + 장르 조합")
+if missing_combinations:
+    for mood, genre in missing_combinations:
+        st.markdown(f"- {mood} + {genre}")
+    st.warning(f"총 {len(missing_combinations)}개의 조합이 누락되어 있어요.")
+else:
+    st.success("모든 기분 + 장르 조합이 완벽하게 채워져 있어요!")
+
