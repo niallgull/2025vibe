@@ -1,24 +1,30 @@
 import streamlit as st
 import random
 
-# ✅ 폰트 스타일 적용
+# ✅ 폰트 스타일 + 버튼 스타일 (아이보리 톤, 포근한 느낌)
 st.markdown("""
     <style>
+    @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
+
+    html, body, [class*="css"] {
+        font-family: 'NanumSquareRound', sans-serif !important;
+    }
+
     button[kind="secondary"] {
-        background: linear-gradient(145deg, #f2f2f2, #e0e0e0);
-        border: 1px solid #ccc;
-        color: #333;
+        background: linear-gradient(145deg, #fdfaf3, #f3f0e8);
+        border: 1px solid #e6e3d9;
+        color: #4a4a4a;
         font-weight: bold;
-        box-shadow: 2px 2px 6px #d1d1d1, -2px -2px 6px #ffffff;
+        box-shadow: 2px 2px 6px #ddd9cf, -2px -2px 6px #ffffff;
         border-radius: 12px;
         padding: 0.6em 1.2em;
         transition: 0.2s ease-in-out;
     }
 
     button[kind="secondary"]:hover {
-        background: linear-gradient(145deg, #e0e0e0, #f2f2f2);
+        background: linear-gradient(145deg, #f3f0e8, #fdfaf3);
         transform: scale(1.02);
-        box-shadow: 2px 2px 10px #c5c5c5, -2px -2px 10px #ffffff;
+        box-shadow: 2px 2px 10px #d5d2ca, -2px -2px 10px #ffffff;
     }
     </style>
 """, unsafe_allow_html=True)
