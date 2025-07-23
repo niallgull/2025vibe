@@ -248,3 +248,5 @@ if missing_combinations:
 else:
     st.success("모든 기분 + 장르 조합이 완벽하게 채워져 있어요!")
 
+if "image" in s:
+    st.image(s["image"], width=200)
