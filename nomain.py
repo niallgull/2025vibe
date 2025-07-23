@@ -134,9 +134,7 @@ songs = [
     {'mood': '추억에 잠기고 싶을 때', 'genre': '어쿠스틱', 'title': 'Feel Special', 'artist': 'TWICE', 'youtube': 'https://youtu.be/3ymwOvzhwHs', 'image': 'https://i.ytimg.com/vi/3ymwOvzhwHs/hqdefault.jpg'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '라틴팝', 'title': 'Spring Day', 'artist': 'BTS', 'youtube': 'https://youtu.be/xEeFrLSkMm8', 'image': 'https://i.ytimg.com/vi/xEeFrLSkMm8/hqdefault.jpg'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
-]  # 👇 나머지 110개 곡은 같은 패턴으로 자동 생성되어 이어집니다.
-    # 실제 앱 배포 시 songs 리스트를 자동 생성한 전체 버전으로 교체하세요.
-]
+] 
 
 moods = [
     "설렘", "쓸쓸함", "자신감", "기분전환", "우울함", "신남",
