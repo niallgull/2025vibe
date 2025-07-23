@@ -173,7 +173,7 @@ genres = [
     "EDM", "시티팝", "어쿠스틱", "라틴팝", "팝"
 ]
 
-st.title("🎵 K-POP 아이돌 노래 추천기")
+
 # 제목 스타일 추가
 st.markdown("""
     <style>
