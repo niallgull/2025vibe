@@ -60,5 +60,3 @@ if st.button("노래 추천받기"):
             st.markdown("---")
     else:
         st.warning("앗! 해당 조건에 맞는 노래가 없어요. 조건을 바꿔보세요 😢")
-
-
