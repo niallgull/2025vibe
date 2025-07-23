@@ -1,5 +1,3 @@
-# lunch_menu_app.py
-
 import streamlit as st
 import random
 
@@ -24,13 +22,12 @@ category = st.selectbox("🍱 먹고 싶은 음식 종류를 선택하세요:", 
 if st.button("메뉴 추천 받기"):
     recommended = random.choice(menus[category])
     
-    # 결과를 크게 출력
+    # 한 줄, 크고 중앙 정렬된 텍스트 출력
     st.markdown(
         f"""
-        <div style="text-align:center; margin-top:30px;">
-            <span style="font-size:48px;">✨ 오늘의 추천 메뉴는 <b>{recommended}</b> 입니다!</span>
-        </div>
+        <h1 style='text-align: center; font-size: 48px; margin-top: 30px;'>
+            ✨ 오늘의 추천 메뉴는 {recommended} 입니다!
+        </h1>
         """,
         unsafe_allow_html=True
     )
-
