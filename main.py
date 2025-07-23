@@ -22,11 +22,11 @@ category = st.selectbox("🍱 먹고 싶은 음식 종류를 선택하세요:", 
 if st.button("메뉴 추천 받기"):
     recommended = random.choice(menus[category])
     
-    # 한 줄 출력 + 파란색 텍스트 적용
+    # 메뉴 이름만 파란색으로 강조
     st.markdown(
         f"""
-        <h1 style='text-align: center; font-size: 48px; margin-top: 30px; color: #1E90FF;'>
-            ✨ 오늘의 추천 메뉴는 {recommended} 입니다!
+        <h1 style='text-align: center; font-size: 48px; margin-top: 30px;'>
+            ✨ 오늘의 추천 메뉴는 <span style='color: #1E90FF;'>{recommended}</span> 입니다!
         </h1>
         """,
         unsafe_allow_html=True
