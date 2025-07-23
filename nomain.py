@@ -2,19 +2,11 @@
 import streamlit as st
 import random
 
-# ✅ 노래 리스트 (121곡 예시 - 일부만 예시로 보여줌)
-songs = [
-    {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
-    {'mood': '자신감', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans', 'youtube': 'https://youtu.be/js1CtxSY38I', 'image': 'https://i.ytimg.com/vi/js1CtxSY38I/hqdefault.jpg'},
-    {'mood': '쓸쓸함', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT', 'youtube': 'https://youtu.be/Vk5-c_v4gMU', 'image': 'https://i.ytimg.com/vi/Vk5-c_v4gMU/hqdefault.jpg'},
-    # 👉 이 아래에 나머지 118곡을 동일한 형식으로 추가해주세요.
-]
-
-# ✅ 세션 상태 초기화
+# ✅ 세션 상태 초기화 (중복 방지와 기록 보관용)
 if "history" not in st.session_state:
     st.session_state.history = []
 
-# ✅ 스타일 지정
+# ✅ 폰트와 스타일 지정 (포근한 아이보리 테마 + 애니메이션 효과)
 st.markdown("""
     <style>
     @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumSquareRound.css');
@@ -49,23 +41,26 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ✅ 제목
+# ✅ 앱 제목
 st.markdown('<h1 class="title-animated">🎧 K-POP 아이돌 노래 추천기</h1>', unsafe_allow_html=True)
 
 # ✅ 기분과 장르 선택
-moods = sorted(list(set(song['mood'] for song in songs)))
-genres = sorted(list(set(song['genre'] for song in songs)))
+moods = ["설렘", "쓸쓸함", "자신감", "기분전환", "우울함", "신남", "힐링", "위로받고 싶음", "비 오는 날", "친구들과 함께", "추억에 잠기고 싶을 때"]
+genres = ["댄스", "인디팝", "발라드", "록", "힙합", "R&B", "EDM", "시티팝", "어쿠스틱", "라틴팝", "팝"]
+
 selected_mood = st.selectbox("기분을 골라주세요", moods)
 selected_genre = st.selectbox("장르를 골라주세요", genres)
 
+# ✅ 노래 리스트 (간단 예시)
+songs = [
+    {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
+    {'mood': '쓸쓸함', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans', 'youtube': 'https://youtu.be/js1CtxSY38I', 'image': 'https://i.ytimg.com/vi/js1CtxSY38I/hqdefault.jpg'},
+    # ... 모든 121개 조합을 여기에 채워 넣으면 됩니다
+]
+
 # ✅ 조건 기반 추천
 if st.button("🔍 추천받기"):
-    filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre and s not in st.session_state.history]
-    if not filtered:
-        st.warning("조건에 맞는 노래가 더 이상 없어요! 기록을 초기화할게요.")
-        st.session_state.history = []
-        filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
-
+    filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
     if filtered:
         song = random.choice(filtered)
         st.session_state.history.append(song)
@@ -75,7 +70,7 @@ if st.button("🔍 추천받기"):
     else:
         st.warning("해당 조건에 맞는 곡이 없어요. 😢")
 
-# ✅ 아무거나 추천
+# ✅ 아무거나 추천하기
 st.markdown("## 🎲 아무거나 추천받기")
 if st.button("🎲 아무거나 추천해줘!"):
     remaining = [s for s in songs if s not in st.session_state.history]
@@ -90,7 +85,7 @@ if st.button("🎲 아무거나 추천해줘!"):
     st.markdown(f"**🎶 {s['title']}** by *{s['artist']}*")
     st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
 
-# ✅ 기록 초기화와 추천 내역 표시
+# ✅ 기록 초기화 버튼과 함께 추천 내역 보여주기
 col1, col2 = st.columns([1, 5])
 with col1:
     if st.button("🧹 기록 초기화"):
