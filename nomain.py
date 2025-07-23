@@ -100,7 +100,7 @@ songs = [
     {'mood': '우울함', 'genre': '인디팝', 'title': 'Magnetic', 'artist': 'ILLIT'},
     {'mood': '우울함', 'genre': '발라드', 'title': 'Love Dive', 'artist': 'IVE'},
     {'mood': '우울함', 'genre': '록', 'title': 'Love Shot', 'artist': 'EXO'},
-    {'mood': '우울함', 'genre': '힙합', 'title': 'Red Flavor', 'artist': 'Red Velvet' },
+    {'mood': '우울함', 'genre': '힙합', 'title': 'Red Flavor', 'artist': 'Red Velvet'},
     {'mood': '우울함', 'genre': 'R&B', 'title': 'Red Flavor', 'artist': 'Red Velvet'},
     {'mood': '우울함', 'genre': 'EDM', 'title': 'Feel Special', 'artist': 'TWICE'},
     {'mood': '우울함', 'genre': '시티팝', 'title': 'Magnetic', 'artist': 'ILLIT'},
@@ -116,11 +116,11 @@ songs = [
     {'mood': '신남', 'genre': 'EDM', 'title': 'LOVE SCENARIO', 'artist': 'iKON'},
     {'mood': '신남', 'genre': '시티팝', 'title': 'Hype Boy', 'artist': 'NewJeans'},
     {'mood': '신남', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet'},
-    {'mood': '신남', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE' },
+    {'mood': '신남', 'genre': '라틴팝', 'title': 'Love Dive', 'artist': 'IVE'},
     {'mood': '신남', 'genre': '팝', 'title': 'LOVE SCENARIO', 'artist': 'iKON'},
     {'mood': '힐링', 'genre': '댄스', 'title': 'LOVE SCENARIO', 'artist': 'iKON'},
     {'mood': '힐링', 'genre': '인디팝', 'title': 'Love Dive', 'artist': 'IVE'},
-    {'mood': '힐링', 'genre': '발라드', 'title': 'Cupid', 'artist': 'FIFTY FIFTY' },
+    {'mood': '힐링', 'genre': '발라드', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'},
     {'mood': '힐링', 'genre': '록', 'title': 'Feel Special', 'artist': 'TWICE'},
     {'mood': '힐링', 'genre': '힙합', 'title': 'Feel Special', 'artist': 'TWICE'},
     {'mood': '힐링', 'genre': 'R&B', 'title': 'Love Shot', 'artist': 'EXO'},
@@ -172,7 +172,7 @@ songs = [
     {'mood': '추억에 잠기고 싶을 때', 'genre': '시티팝', 'title': 'Red Flavor', 'artist': 'Red Velvet'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '어쿠스틱', 'title': 'Feel Special', 'artist': 'TWICE'},
     {'mood': '추억에 잠기고 싶을 때', 'genre': '라틴팝', 'title': 'Spring Day', 'artist': 'BTS'},
-    {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', '}
+    {'mood': '추억에 잠기고 싶을 때', 'genre': '팝', 'title': 'Cupid', 'artist': 'FIFTY FIFTY'}
 ] 
 
 # ✅ 조건 기반 추천
