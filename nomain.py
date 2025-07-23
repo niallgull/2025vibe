@@ -1,7 +1,7 @@
 # ✅ 필요한 라이브러리 임포트
 import streamlit as st
 import random
-from songs_list.py import songs  # 별도 파일에서 불러오기
+from songs_list import songs 
 
 # ✅ 세션 상태 초기화 (중복 방지와 기록 보관용)
 if "history" not in st.session_state:
