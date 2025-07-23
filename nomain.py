@@ -217,3 +217,10 @@ with col2:
     else:
         st.markdown("아직 추천받은 노래가 없어요!")
 
+# ✅ 모든 곡 보기
+with st.expander("📚 모든 추천 곡 목록 보기 (121곡)"):
+    for idx, s in enumerate(songs, 1):
+        st.markdown(f"**{idx}. {s['title']}** by *{s['artist']}*")
+        st.image(s["image"], width=200)
+        st.markdown(f"[유튜브에서 보기 🎬]({s['youtube']})", unsafe_allow_html=True)
+        st.markdown("---")
