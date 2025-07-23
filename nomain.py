@@ -51,13 +51,6 @@ genres = ["댄스", "인디팝", "발라드", "록", "힙합", "R&B", "EDM", "�
 selected_mood = st.selectbox("기분을 골라주세요", moods)
 selected_genre = st.selectbox("장르를 골라주세요", genres)
 
-# ✅ 노래 리스트 (간단 예시)
-songs = [
-    {'mood': '설렘', 'genre': '댄스', 'title': 'Cupid', 'artist': 'FIFTY FIFTY', 'youtube': 'https://youtu.be/6uvUTz0uP3k', 'image': 'https://i.ytimg.com/vi/6uvUTz0uP3k/hqdefault.jpg'},
-    {'mood': '쓸쓸함', 'genre': 'R&B', 'title': 'Hype Boy', 'artist': 'NewJeans', 'youtube': 'https://youtu.be/js1CtxSY38I', 'image': 'https://i.ytimg.com/vi/js1CtxSY38I/hqdefault.jpg'},
-    # ... 모든 121개 조합을 여기에 채워 넣으면 됩니다
-]
-
 # ✅ 조건 기반 추천
 if st.button("🔍 추천받기"):
     filtered = [s for s in songs if s["mood"] == selected_mood and s["genre"] == selected_genre]
