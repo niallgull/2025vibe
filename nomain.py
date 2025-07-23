@@ -214,6 +214,17 @@ if st.button("🔍 추천받기"):
 
 st.markdown("## 🎲 아무것이나 추천받기")
 if st.button("🎲 아무거나 추천해줘!"):
+    # 같은 노래 반복 방지를 위한 필터링
+previous_titles = [h["title"] for h in st.session_state.history]
+remaining_songs = [song for song in songs if song["title"] not in previous_titles]
+
+if not remaining_songs:
+    st.session_state.history.clear()
+    remaining_songs = songs.copy()
+
+s = random.choice(remaining_songs)
+st.session_state.history.append(s)
+
     s = random.choice(songs)
     # 기존의 st.balloons() 대신 애니메이션 대체
     st.toast("✨ 새로운 노래를 추천 중이에요!", icon="🎧")
