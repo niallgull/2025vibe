@@ -58,7 +58,7 @@ songs = [
     {'mood': '설렘', 'genre': '록', 'title': 'Polaroid Love', 'artist': 'ENHYPEN'
     {'mood': '설렘', 'genre': '힙합', 'title': 'Love Shot', 'artist': 'EXO'
     {'mood': '설렘', 'genre': 'R&B', 'title': 'Spring Day', 'artist': 'BTS'
-    {'mood': '설렘', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT', 
+    {'mood': '설렘', 'genre': 'EDM', 'title': 'Magnetic', 'artist': 'ILLIT' 
     {'mood': '설렘', 'genre': '시티팝', 'title': 'Feel Special', 'artist': 'TWICE'
     {'mood': '설렘', 'genre': '어쿠스틱', 'title': 'Red Flavor', 'artist': 'Red Velvet'
     {'mood': '설렘', 'genre': '라틴팝', 'title': 'Love Shot', 'artist': 'EXO'
