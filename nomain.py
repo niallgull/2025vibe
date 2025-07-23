@@ -223,6 +223,7 @@ if st.button("🎲 아무거나 추천해줘!"):
         st.warning("모든 곡을 추천했어요! 기록을 초기화할게요.")
         st.session_state.history = []
         remaining = songs[:]
+
 # ✅ 스트림릿 앱 시작 부분에 아래 코드 추가 (기록 저장용 변수 초기화)
 if "history" not in st.session_state:
     st.session_state.history = []
