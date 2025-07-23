@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# 🎀 귀여운 폰트 + 스타일
+# 🍭 폰트 및 배경색 스타일
 FONT_URL = "https://fonts.googleapis.com/css2?family=Jua&display=swap"
 st.markdown(
     f"""
@@ -10,6 +10,7 @@ st.markdown(
 
     html, body, [class*="css"] {{
         font-family: 'Jua', sans-serif;
+        background-color: #FFF8DC;  /* 아이보리 배경 */
     }}
 
     .center-text {{
@@ -61,15 +62,14 @@ seasonal_desserts = {
     "겨울": ["🥯 호떡", "🐟 붕어빵", "☕ 시나몬롤", "🍫 핫초코"]
 }
 
-# 앱 제목
-st.title("🍽️ 점심 + 디저트 추천기")
+# 🎀 앱 제목
+st.title("🍱 오늘의 점메추!!")
+st.markdown("음식 종류 또는 계절을 선택하면, 어울리는 점심과 디저트를 추천해드릴게요! 🍽️🍰")
 
-st.markdown("음식 종류 또는 계절을 선택하면, 어울리는 점심과 디저트를 추천해드릴게요! 🍱🍰")
-
-# 추천 방식 선택
+# 🧭 추천 방식 선택
 mode = st.radio("추천 기준을 선택하세요:", ["🍱 음식 종류", "🗓️ 계절"])
 
-# 음식 종류 모드
+# 🍱 음식 종류 추천
 if mode == "🍱 음식 종류":
     category = st.selectbox("🍴 어떤 음식이 땡기나요?", list(category_menus.keys()))
     if st.button("🎁 메뉴 + 디저트 추천 받기", key="category"):
@@ -86,7 +86,7 @@ if mode == "🍱 음식 종류":
             unsafe_allow_html=True
         )
 
-# 계절 모드
+# 🗓️ 계절 추천
 elif mode == "🗓️ 계절":
     season = st.selectbox("📅 현재 계절은?", list(seasonal_menus.keys()))
     if st.button("🎁 메뉴 + 디저트 추천 받기", key="season"):
@@ -102,8 +102,3 @@ elif mode == "🗓️ 계절":
             """,
             unsafe_allow_html=True
         )
-
-            """,
-            unsafe_allow_html=True
-        )
-
